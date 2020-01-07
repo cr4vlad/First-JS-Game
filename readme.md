@@ -1,5 +1,10 @@
 # Documentation
-## init
+## Launch
+To launch the game you need to download the repo, open terminal in your local repo and run: 
+`npm init`
+`npm start`
+## Notes
+### init
 lowerCamelCase is standard for folders and files, except of one-class-files, that only export by default 1 class, named in Camel Case.
 
 __Assets__ are for all graphics and sounds in the game.
@@ -11,7 +16,7 @@ Folders organization from web (for assets):
 
 __Model__ is organized by [scenes](https://dou.ua/lenta/articles/javascript-gamedev/?from=footer).
 
-## 07.01.2020
+### 07.01.2020
 Src structure - HMVC: Scene: model, view/, controller (index)
 
 folders' names should use CamelCase if they contain index.js, otherwise use lowerCamelCase
