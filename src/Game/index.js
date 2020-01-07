@@ -1,7 +1,8 @@
 import IntroScene from '../IntroScene';
 
-class Game {
+export default class Game {
   constructor() {
+    this.root = document.getElementById('root');
     this.setScene(IntroScene);
     this.initInput();
     this.startLoop();
@@ -18,7 +19,8 @@ class Game {
     this.activeScene.update(dt);
   }
   render(dt) {
-    this.activeScene.render(dt);
+    this.root.innerHTML = "";
+    this.activeScene.render(dt, this.root);
   }
   startLoop() {
     let last = performance.now(),
@@ -31,16 +33,14 @@ class Game {
       dt = dt + Math.min(1, (now - last) / 1000); // исправление проблемы неактивных вкладок
       while(dt > step) {
         dt = dt - step;
-        this.activeScene.update(step);
+        this.update(step);
       }
       last = now;
 
-      this.activeScene.render(dt);
+      this.render(dt);
       requestAnimationFrame(frame);
     }
 
     requestAnimationFrame(frame);
   }
 }
-
-export default new Game();

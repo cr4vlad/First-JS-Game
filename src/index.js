@@ -1,8 +1,6 @@
 import './Game/view/style.css';
 import Game from './Game';
 
-console.log("Let's start the show");
+console.log("Game launched");
 
-Game();
-
-console.log("Let's finish the show");
+const game = new Game();

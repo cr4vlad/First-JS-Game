@@ -1,4 +1,7 @@
 import MenuScene from '../MenuScene'
+import './model'
+import html from './view/html'
+import './view/style.css'
 
 export default class GameScene {
   constructor(game) {
@@ -15,7 +18,7 @@ export default class GameScene {
     if (this.game.keys['82']) this.angle++; // R
     if (this.game.keys['27']) this.game.setScene(MenuScene); // Back to menu
   }
-  render(dt) {
-    console.log('Render game');
+  render(dt, root) {
+    root.innerHTML = html;
   }
 }

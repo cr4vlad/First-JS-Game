@@ -1,4 +1,6 @@
 import GameScene from '../GameScene'
+import html from './view/html'
+import './view/style.css'
 
 export default class MenuScene {
   constructor(game) {
@@ -11,6 +13,6 @@ export default class MenuScene {
   }
 
   render(dt) {
-    console.log('Render menu');
+    root.innerHTML = html;
   }
 }

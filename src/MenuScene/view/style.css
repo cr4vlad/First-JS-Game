@@ -1,0 +1,10 @@
+#intro-title {
+  display: block;
+  font-size: 50px;
+  position: absolute;
+  left: 50%;
+  margin-left: -150px;
+  top: 50%;
+  margin-top: -25px;
+  color: white;
+}

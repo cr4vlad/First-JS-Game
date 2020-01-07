@@ -1,4 +1,6 @@
 import MenuScene from '../MenuScene'
+import html from './view/html'
+import './view/style.css'
 
 export default class IntroScene {
   constructor(game) {
@@ -9,8 +11,8 @@ export default class IntroScene {
     console.log('Update intro')
   }
 
-  render(dt) {
-    console.log('Render intro')
-    this.game.setScene(MenuScene);
+  render(dt, root) {
+    root.innerHTML = html;
+    setTimeout(() => this.game.setScene(MenuScene), 2000);
   }
 }
