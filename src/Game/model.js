@@ -1,8 +1,2 @@
-const METER = 20; // length unit
-
-let inputState = {
-  UP: false,
-  DOWN: false,
-  LEFT: false,
-  RIGHT: false
-};
+// options
+export let fps = 60;  // should be loaded from options file

@@ -1,4 +1,5 @@
 import IntroScene from '../IntroScene';
+import { fps } from './model'
 
 export default class Game {
   constructor() {
@@ -24,13 +25,13 @@ export default class Game {
   }
   startLoop() {
     let last = performance.now(),
-        step = 1 / 60,
+        step = 1 / fps,
         dt = 0,
         now;
 
     let frame = () => {
       now = performance.now();
-      dt = dt + Math.min(1, (now - last) / 1000); // исправление проблемы неактивных вкладок
+      dt = dt + Math.min(1, (now - last) / 1000); // fix inactive tabs problem
       while(dt > step) {
         dt = dt - step;
         this.update(step);

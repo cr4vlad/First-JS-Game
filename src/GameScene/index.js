@@ -1,24 +1,33 @@
 import MenuScene from '../MenuScene'
-import './model'
+import updateState, { shipState } from './model'
 import html from './view/html'
 import './view/style.css'
 
 export default class GameScene {
   constructor(game) {
     this.game = game;
-    this.angle = 0;
-    this.posX = 0;
-    this.posY = 0;
   }
   update(dt) {
-    if (this.game.keys['87']) this.posY--; // W
-    if (this.game.keys['83']) this.posY++; // S
-    if (this.game.keys['65']) this.posX--; // A
-    if (this.game.keys['68']) this.posX++; // D
-    if (this.game.keys['82']) this.angle++; // R
-    if (this.game.keys['27']) this.game.setScene(MenuScene); // Back to menu
+    let acceleration = false;
+    let turn = 0;
+
+    // control
+    if (this.game.keys['87'] || this.game.keys['38']) acceleration = true; // W / arrow up
+    if (this.game.keys['65'] || this.game.keys['37']) turn = 1; // A / arrow left
+    if (this.game.keys['68'] || this.game.keys['39']) turn = -1; // D / arrow right
+    if (this.game.keys['83'] || this.game.keys['40']) console.log('Reverse! (S)'); // S / arrow down (optional)
+    if (this.game.keys['32'] || this.game.keys['17']) console.log('Fire! (Space)'); // Space / Ctrl (optional)
+    if (this.game.keys['27']) this.game.setScene(MenuScene); // Esc - Back to menu
+
+    updateState(dt, turn, acceleration);
   }
   render(dt, root) {
-    root.innerHTML = html;
+    if (!root.innerHTML) root.innerHTML = html;
+    
+    // functional data
+    for (var prop in shipState) {
+      root.innerHTML += `<p>${prop}: ${shipState[prop].toFixed(2)}</p>`;
+    }
+    root.innerHTML += `<p>Real FPS: ${Math.round(1 / dt)}</p>`;
   }
 }

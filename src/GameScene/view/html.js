@@ -1,2 +1,2 @@
-const html = "<div id='intro-title'>Game scene</div>";
+const html = "<div id='title'><span>Game scene</span></div>";
 export default html;
