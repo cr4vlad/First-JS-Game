@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cd public && index.html",
     "build": "cd dist && DEL /F/Q/S *.* > NUL && cd.. && cls && webpack && cd public && index.html",
+    "first-build": "webpack && cd public && index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

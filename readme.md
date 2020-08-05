@@ -1,10 +1,18 @@
 # Documentation
 ## Launch
-To launch the game you need to download the repo, open terminal in your local repo and run: 
-`npm init`\
-`npm run build`
+To launch the game you need to download the repo, open terminal in your local repo and run:
+
+`npm install`
+
+`npm run first-build`
+
+If you get errors try to run `npm audit fix`.
 
 After that you can either run `npm start` from projects folder, or just open _public/index.html_
+
+To start "playing" press ENTER in Game Menu.
+
+Controls: WASD or arrows
 ## Notes
 ### init
 lowerCamelCase is standard for folders and files, except of one-class-files, that only export by default 1 class, named in Camel Case.
